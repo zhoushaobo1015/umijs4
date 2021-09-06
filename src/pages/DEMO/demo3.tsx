@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useIntl } from 'react-intl';
-import { Input } from 'antd';
+import { Input, message } from 'antd';
 const { Search } = Input;
 import './index.scss';
 import store from '../../redux/index';
@@ -28,6 +28,12 @@ function DemoPage3() {
         let data = JSON.parse(JSON.stringify(state));
         if (v.trim()) {
             let l = data.list;
+            
+            if(l.includes(v)){
+                message.error("添加内容已经存在");
+                return false;
+            }
+
             l.push(v)
             let action = {
                 type: state.type,
@@ -43,7 +49,15 @@ function DemoPage3() {
     }
 
     const handleRemoveDom = (v: any) => {
-        console.log(v);
+        let data = JSON.parse(JSON.stringify(state));
+        let l = data.list;
+        l.splice(l.indexOf(v), 1)
+        let action = {
+            type: state.type,
+            inputValue: v,
+            list: l
+        }
+        store.dispatch(action);
     }
 
     return (

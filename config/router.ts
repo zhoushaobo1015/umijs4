@@ -1,3 +1,4 @@
+
 export default [
     {
         path: '/',
@@ -17,5 +18,5 @@ export default [
         name: 'demo',
         icon: 'copy',
         component: '@/pages/DEMO',
-    },
+    }
 ]

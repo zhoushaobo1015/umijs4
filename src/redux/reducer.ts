@@ -1,7 +1,8 @@
+import {CHANGE_INPUT} from './actionType';
 const defaultState = {
-    type: "index",
+    type: CHANGE_INPUT,
     inputValue: "redux",
-    list: [1, 2, 3, 4]
+    list: []
 }  //默认数据
 // state: 指的是原始仓库里的状态。
 // action: 指的是action新传递的状态。

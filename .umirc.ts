@@ -14,7 +14,7 @@ export default defineConfig({
   },
   hash: true,
   dva: {
-    immer: true,
+    immer: { enableES5: true },
     hmr: false,
   },
   // base: "/one/", // 基础路由添加
